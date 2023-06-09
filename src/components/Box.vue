@@ -1,8 +1,20 @@
 <template>
     <div class="container">
         <div class="box"></div>
+        <div @click="active = !active" :class="[active ? 'box2-open' : 'box2']" >click me</div>
     </div>
 </template>
+
+<script setup lang="ts">
+import {ref, computed } from 'vue'
+
+
+let active: boolean = ref(false)
+
+
+
+
+</script>
 
 <style scoped>
 
@@ -14,8 +26,38 @@
     align-items: center;
 }
 
+
+.box2{
+    border-radius: 20px;
+    margin: 1rem;
+    width: 60px;
+    height: 60px;
+    background: #f0f0f0;
+    box-shadow: 0 0 0 #cccccc,
+                0 0 0 #ffffff,
+                10px 10px 10px #cccccc inset,
+                -10px -10px 10px #ffffff inset;
+}
+
+.box2-open{
+    border-radius: 20px;
+    margin: 1rem;
+    width: 60px;
+    height: 60px;
+    background: #f0f0f0;
+    box-shadow: 0 0 0 #cccccc,
+                0 0 0 #ffffff,
+                10px 10px 10px #cccccc inset,
+                -10px -10px 10px #ffffff inset;
+    animation: animate 4s cubic-bezier(0.16, 1, 0.3, 1) 1s alternate;
+    animation-fill-mode: forwards;  
+
+}
+
+
 .box{
     border-radius: 20px;
+    margin: 1rem;
     width: 60px;
     height: 60px;
     background: #f0f0f0;
